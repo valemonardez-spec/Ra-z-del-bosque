@@ -120,14 +120,16 @@
     }
 
     .menu {
-      display: flex;
-      justify-content: center;
-      gap: 42px;
-      padding: 16px 20px 18px;
-      text-transform: uppercase;
-      font-size: 14px;
-      letter-spacing: 0.8px;
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 42px;
+  padding: 16px 20px 18px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.8px;
+  width: 100%;
+}
 
     .menu a {
       font-weight: 600;
@@ -489,15 +491,29 @@
       }
 
       .topbar {
-        grid-template-columns: 1fr;
-        gap: 14px;
-        text-align: center;
-      }
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 18px 40px;
+  width: 100%;
+}
 
-      .nombre-izquierda,
-      .acciones-derecha {
-        justify-self: center;
-      }
+.nombre-izquierda {
+  justify-self: start;
+}
+
+.centro-marca {
+  justify-self: center;
+}
+
+.acciones-derecha {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 220px;
+  justify-content: flex-end;
+}
 
       .menu {
         flex-wrap: wrap;
@@ -633,26 +649,311 @@
         font-size: 18px;
       }
     }
+
+    .carrito-boton {
+  background: transparent;
+  border: none;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  cursor: pointer;
+  color: #2f2f2f;
+}
+
+.buscador {
+  width: 130px;
+  padding: 8px 12px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.7);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+}
+
+.admin-boton {
+  background: transparent;
+  border: none;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  cursor: pointer;
+  color: #2f2f2f;
+}
+
+.admin-panel {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.28);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  overflow-y: auto;
+}
+
+.admin-contenido {
+  width: 460px;
+  max-width: 92vw;
+  max-height: 82vh;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.97);
+  padding: 30px;
+  border-radius: 24px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+  position: relative;
+  z-index: 10000;
+}
+
+.admin-contenido h2 {
+  font-family: 'Prata', serif;
+  margin-bottom: 22px;
+}
+
+.admin-contenido input,
+.admin-contenido select,
+.admin-contenido textarea {
+  width: 100%;
+  margin-bottom: 14px;
+  padding: 12px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 12px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+}
+
+.admin-contenido textarea {
+  min-height: 90px;
+}
+
+.admin-contenido .cerrar-carrito {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  float: none;
+}
+
+.carrito-panel {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 2000;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.carrito-contenido {
+  width: 380px;
+  max-width: 90%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  box-shadow: -8px 0 24px rgba(0,0,0,0.12);
+  overflow-y: auto;
+}
+
+.carrito-contenido h2 {
+  font-family: 'Prata', serif;
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+
+.cerrar-carrito {
+  float: right;
+  background: transparent;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+.carrito-item {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 14px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  padding-bottom: 16px;
+}
+
+.carrito-item img {
+  width: 70px;
+  height: 85px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.carrito-item h3 {
+  font-family: 'Prata', serif;
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+
+.carrito-item p {
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.carrito-controles {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.carrito-controles button {
+  width: 26px;
+  height: 26px;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: white;
+  cursor: pointer;
+}
+
+.carrito-total {
+  font-family: 'Prata', serif;
+  font-size: 24px;
+  margin: 28px 0;
+}
+
+
+
+.footer {
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(10px);
+  padding: 60px 40px 28px;
+  margin-top: 100px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+.footer-contenido {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.footer-logo img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.footer-logo h3 {
+  font-family: 'Prata', serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: #241f1d;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.footer-info p,
+.footer-info a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  color: #3d3835;
+}
+
+.footer-info a {
+  transition: opacity 0.25s ease;
+}
+
+.footer-info a:hover {
+  opacity: 0.65;
+}
+
+.instagram-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.instagram-link img {
+  width: 30px;
+  height: 30px;
+}
+
+.footer-copy {
+  text-align: center;
+  margin-top: 40px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  color: #6b6663;
+}
+
+@media (max-width: 900px) {
+
+  .footer-contenido {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-info {
+    align-items: center;
+  }
+
+  .footer-logo {
+    flex-direction: column;
+  }
+
+}
   </style>
 </head>
 
 <body>
+
   <header>
     <div class="topbar">
-      <div class="nombre-izquierda">Raíz del Bosque</div>
+
+      <div class="nombre-izquierda">
+        Raíz del Bosque
+      </div>
 
       <div class="centro-marca">
         <a href="javascript:void(0)" onclick="volverInicio()" class="logo-link">
+
           <div class="logo-circulo">
             <img src="logo-raiz-bosque.png" alt="Logo Raíz del Bosque" />
           </div>
-          <div class="nombre-marca">Raíz del Bosque</div>
+
+          <div class="nombre-marca">
+            Raíz del Bosque
+          </div>
+
         </a>
       </div>
 
       <div class="acciones-derecha">
-        BUSCAR | MI CUENTA
+
+        <input
+          id="buscador"
+          class="buscador"
+          type="text"
+          placeholder="Buscar"
+          oninput="buscarProductos()"
+        />
+
+        <button class="admin-boton" onclick="abrirAdmin()">
+          ADMIN
+        </button>
+
+        <button class="carrito-boton" onclick="abrirCarrito()">
+          CARRITO (<span id="contador-carrito">0</span>)
+        </button>
+
       </div>
+
     </div>
 
     <nav class="menu">
@@ -660,87 +961,147 @@
       <a onclick="irASeccion('productos')">✧ Productos</a>
       <a onclick="irASeccion('historia')">✧ Mi historia</a>
     </nav>
+
   </header>
 
+
+
   <main id="main-content">
+
+    <!-- HERO -->
     <section class="hero" id="inicio">
+
       <div class="hero-box">
+
         <div class="halo"></div>
+
         <div class="star">✦</div>
-        <div class="hero-kicker">introduciendo</div>
-        <h1>Joyas nacidas<br />del bosque</h1>
+
+        <div class="hero-kicker">
+          introduciendo
+        </div>
+
+        <h1>
+          Joyas nacidas<br />
+          del bosque
+        </h1>
+
         <p>
-          Inspirada en nuestros bosques y la naturaleza. Piezas únicas con una
-          estética delicada, etérea y orgánica.
+          Inspirada en nuestros bosques y la naturaleza.
+          Piezas únicas con una estética delicada,
+          etérea y orgánica.
         </p>
-        <button class="btn btn-principal" onclick="irASeccion('productos')">Ver productos</button>
+
+        <button
+          class="btn btn-principal"
+          onclick="irASeccion('productos')"
+        >
+          Ver productos
+        </button>
+
       </div>
+
     </section>
 
+
+
+    <!-- COLECCIONES -->
     <section id="colecciones">
-      <h2 class="titulo">Colecciones</h2>
-      <p class="intro">Explora por inspiración</p>
+
+      <h2 class="titulo">
+        Colecciones
+      </h2>
+
+      <p class="intro">
+        Explora por inspiración
+      </p>
 
       <div class="grid">
+
         <div class="card" onclick="abrirColeccion('estelar')">
           <img src="estelar.jpg" alt="Colección Estelar" />
+
           <h3>Estelar</h3>
+
           <p class="descripcion">
-            Inspirado en la luz sutil de las estrellas y los reflejos del cielo nocturno.
+            Inspirado en la luz sutil de las estrellas
+            y los reflejos del cielo nocturno.
           </p>
         </div>
 
         <div class="card" onclick="abrirColeccion('alas')">
           <img src="alas.jpg" alt="Colección Alas" />
+
           <h3>Alas</h3>
+
           <p class="descripcion">
-            Inspirado en los patrones únicos y delicados de las alas de las mariposas.
+            Inspirado en los patrones únicos y delicados
+            de las alas de las mariposas.
           </p>
         </div>
 
         <div class="card" onclick="abrirColeccion('primavera')">
           <img src="primavera.jpg" alt="Colección Primavera" />
+
           <h3>Primavera</h3>
+
           <p class="descripcion">
-            Inspirado en la suavidad de la naturaleza en flor y los colores del renacer.
+            Inspirado en la suavidad de la naturaleza
+            en flor y los colores del renacer.
           </p>
         </div>
+
       </div>
+
     </section>
 
+
+
+    <!-- PRODUCTOS -->
     <section id="productos">
-  <h2 class="titulo">Productos</h2>
-  <p class="intro">Explora por tipo de pieza</p>
 
-  <div class="grid-productos">
-    <div class="card" onclick="abrirCategoria('aros')">
-      <img src="aros.jpg" alt="Aros" />
-      <h3>Aros</h3>
-    </div>
+      <h2 class="titulo">
+        Productos
+      </h2>
 
-    <div class="card" onclick="abrirCategoria('collares')">
-      <img src="collar.jpg" alt="Collares" />
-      <h3>Collares</h3>
-    </div>
+      <p class="intro">
+        Explora por tipo de pieza
+      </p>
 
-    <div class="card" onclick="abrirCategoria('anillos')">
-      <img src="anillos.jpg" alt="Anillos" />
-      <h3>Anillos</h3>
-    </div>
+      <div class="grid-productos">
 
-    <div class="card" onclick="abrirCategoria('pulseras')">
-      <img src="pulsera.jpg" alt="Pulseras" />
-      <h3>Pulseras</h3>
-    </div>
-  </div>
-</section>
+        <div class="card" onclick="abrirCategoria('aros')">
+          <img src="aros.jpg" alt="Aros" />
+          <h3>Aros</h3>
+        </div>
+
+        <div class="card" onclick="abrirCategoria('collares')">
+          <img src="collar.jpg" alt="Collares" />
+          <h3>Collares</h3>
+        </div>
+
+        <div class="card" onclick="abrirCategoria('anillos')">
+          <img src="anillos.jpg" alt="Anillos" />
+          <h3>Anillos</h3>
+        </div>
+
+        <div class="card" onclick="abrirCategoria('pulseras')">
+          <img src="pulsera.jpg" alt="Pulseras" />
+          <h3>Pulseras</h3>
+        </div>
+
+      </div>
+
+    </section>
+
+
 
     <section id="historia" class="historia-seccion">
       <h2 class="titulo">Mi historia</h2>
 
       <div class="historia-bloque">
         <div class="historia-imagen">
-          <img src="historia1.jpg" alt="Joyas e inspiración familiar" />
+          <img src="infancia.jpg" alt="Joyas e inspiración familiar" />
         </div>
         <div class="historia-texto">
           <p>
@@ -789,54 +1150,260 @@
       </div>
     </section>
 
+
+
+    <!-- VISTA COLECCION -->
     <section id="vista-coleccion" class="oculto">
+
       <h2 id="coleccion-titulo" class="titulo"></h2>
+
       <p id="coleccion-intro" class="intro"></p>
 
       <div class="coleccion-toolbar">
-        <button class="btn btn-secundario" onclick="volverInicio()">Volver al inicio</button>
+
+        <button
+          class="btn btn-secundario"
+          onclick="volverInicio()"
+        >
+          Volver al inicio
+        </button>
+
       </div>
 
       <div id="coleccion-grid" class="coleccion-grid"></div>
+
     </section>
 
+
+
+    <!-- DETALLE PRODUCTO -->
     <section id="detalle-producto" class="oculto">
+
       <div class="detalle-toolbar">
-        <button class="btn btn-secundario" onclick="volverAListaColeccion()">Volver a la colección</button>
-        <button class="btn btn-secundario" onclick="volverInicio()">Volver al inicio</button>
+
+        <button
+          class="btn btn-secundario"
+          onclick="volverAListaColeccion()"
+        >
+          Volver a la colección
+        </button>
+
+        <button
+          class="btn btn-secundario"
+          onclick="volverInicio()"
+        >
+          Volver al inicio
+        </button>
+
       </div>
 
       <div class="detalle-box">
+
         <img id="detalle-img" src="" alt="Producto" />
 
         <div class="detalle-info">
+
           <h2 id="detalle-nombre"></h2>
+
           <p id="detalle-precio" class="detalle-precio"></p>
+
           <p id="detalle-desc" class="detalle-desc"></p>
+
           <p id="detalle-meta" class="detalle-meta"></p>
+
+          <button
+            id="detalle-agregar"
+            class="btn btn-principal"
+          >
+            Agregar al carrito
+          </button>
+
         </div>
+
       </div>
+
     </section>
 
 
+
+    <!-- VISTA CATEGORIA -->
     <section id="vista-categoria" class="oculto">
-  <h2 id="categoria-titulo" class="titulo"></h2>
-  <p id="categoria-intro" class="intro"></p>
 
-  <div class="coleccion-toolbar">
-    <button class="btn btn-secundario" onclick="volverInicio()">Volver al inicio</button>
-  </div>
+      <h2 id="categoria-titulo" class="titulo"></h2>
 
-  <div id="categoria-grid" class="coleccion-grid"></div>
-</section>
+      <p id="categoria-intro" class="intro"></p>
 
+      <div class="coleccion-toolbar">
+
+        <button
+          class="btn btn-secundario"
+          onclick="volverInicio()"
+        >
+          Volver al inicio
+        </button>
+
+      </div>
+
+      <div id="categoria-grid" class="coleccion-grid"></div>
+
+    </section>
+
+
+
+    <!-- RESULTADOS -->
+    <section id="resultados-busqueda" class="oculto">
+
+      <h2 class="titulo">
+        Resultados de búsqueda
+      </h2>
+
+      <p id="busqueda-intro" class="intro"></p>
+
+      <div id="busqueda-grid" class="coleccion-grid"></div>
+
+    </section>
 
   </main>
 
-  <footer>
-    <p>Contáctanos: mlegassa@gmail.com</p>
-    <p>© 2026 Raíz del Bosque</p>
-  </footer>
+
+
+  <!-- PANEL ADMIN -->
+  <div id="admin-panel" class="admin-panel oculto">
+
+    <div class="admin-contenido">
+
+      <button
+        class="cerrar-carrito"
+        onclick="cerrarAdmin()"
+      >
+        ×
+      </button>
+
+      <h2>Agregar producto</h2>
+
+      <input
+        id="admin-nombre"
+        type="text"
+        placeholder="Nombre del producto"
+      >
+
+      <input
+        id="admin-precio"
+        type="text"
+        placeholder="Precio. Ej: $25.000"
+      >
+
+      <input
+        id="admin-img"
+        type="text"
+        placeholder="Imagen. Ej: producto.jpg"
+      >
+
+      <select id="admin-coleccion">
+        <option value="estelar">Estelar</option>
+        <option value="alas">Alas</option>
+        <option value="primavera">Primavera</option>
+      </select>
+
+      <select id="admin-categoria">
+        <option value="aros">Aros</option>
+        <option value="collares">Collares</option>
+        <option value="anillos">Anillos</option>
+        <option value="pulseras">Pulseras</option>
+      </select>
+
+      <textarea
+        id="admin-desc"
+        placeholder="Descripción"
+      ></textarea>
+
+      <textarea
+        id="admin-meta"
+        placeholder="Materiales / detalles"
+      ></textarea>
+
+      <button
+        class="btn btn-principal"
+        onclick="guardarProductoAdmin()"
+      >
+        Guardar producto
+      </button>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- CARRITO -->
+  <div id="carrito-panel" class="carrito-panel oculto">
+
+    <div class="carrito-contenido">
+
+      <button
+        class="cerrar-carrito"
+        onclick="cerrarCarrito()"
+      >
+        ×
+      </button>
+
+      <h2>Carrito</h2>
+
+      <div id="carrito-items"></div>
+
+      <div class="carrito-total">
+        Total:
+        <span id="carrito-total">$0</span>
+      </div>
+
+      <button
+        class="btn btn-principal"
+        onclick="finalizarCompra()"
+      >
+        Finalizar compra
+      </button>
+
+    </div>
+
+  </div>
+
+
+
+  <footer class="footer">
+
+  <div class="footer-contenido">
+
+    <div class="footer-logo">
+      <img src="logo-raiz-bosque.png" alt="Raíz del Bosque">
+      <h3>Raíz del Bosque</h3>
+    </div>
+
+    <div class="footer-info">
+      <p>Joyas inspiradas en la naturaleza y los bosques del sur de Chile.</p>
+
+      <a href="mailto:mlegassa@gmail.com">
+        ✧ mlegassa@gmail.com
+      </a>
+
+      <a 
+        href="https://www.instagram.com/raizdelbosque/?hl=es-la"
+        target="_blank"
+        class="instagram-link"
+      >
+        <img src="instagram.png" alt="Instagram">
+        @raizdelbosque
+      </a>
+    </div>
+
+  </div>
+
+  <div class="footer-copy">
+    © 2026 Raíz del Bosque
+  </div>
+
+</footer>
+
+</body>
 
   <script>
     const colecciones = {
@@ -864,16 +1431,16 @@
           },
           {
             id: "estelar-3",
-            nombre: "PulseraEsclava Bosque",
+            nombre: "Pulsera Esclava Bosque",
             categoria: "pulseras",
             precio: "$30.000",
             img: "bosque.jpg",
-            desc: "Collar inspirado en constelaciones y reflejos del cielo.",
+            desc: "Pulsera inspirada en constelaciones y reflejos del cielo.",
             meta: "Materiales: plata 950, jade. Hecho a mano."
           },
           {
             id: "estelar-4",
-            nombre: "PulseraEsclava Ocaso",           
+            nombre: "Pulsera Esclava Ocaso",           
             categoria: "pulseras",
             precio: "$32.000",
             img: "ocaso.jpg",
@@ -945,11 +1512,11 @@
           },
           {
             id: "alas-5",
-            nombre: "VENDIDO | Collar Luz de Luna",
+            nombre: "VENDIDO | Colgante Luz de Luna",
             categoria: "collares",
             precio: "$31.000",
             img: "luzdeluna.jpg",
-            desc: "Collar sutil con inspiración en mariposas del bosque.",
+            desc: "Colgante sutil con inspiración en mariposas del bosque.",
             meta: "Materiales: plata 950, cuarzo cristal tallado. Hecho a mano."
           },
           {
@@ -1006,16 +1573,16 @@
           },
           {
             id: "primavera-3",
-            nombre: "Collar Fresia",
+            nombre: "Colgante Fresia",
             categoria: "collares",
             precio: "$25.000",
             img: "fresia.jpg",
-            desc: "Collar inspirado en los colores vívidos de la primavera.",
+            desc: "Colgante inspirado en los colores vívidos de la primavera.",
             meta: "Materiales: plata 950, amatista y turmalina amarilla. Hecho a mano."
           },
           {
             id: "primavera-4",
-            nombre: "Collar Lupino",
+            nombre: "Colgante Lupino",
             categoria: "collares",
             precio: "$28.000",
             img: "lupino.jpg",
@@ -1033,7 +1600,7 @@
           },
           {
             id: "primavera-6",
-            nombre: "Collar Flor de Cristal",
+            nombre: "Colgante Flor de Cristal",
             categoria: "collares",
             precio: "$32.000",
             img: "flordecristal.jpg",
@@ -1104,10 +1671,13 @@
         card.className = "producto-card";
         card.onclick = () => verProducto(id, producto.id);
         card.innerHTML = `
-          <img src="${producto.img}" alt="${producto.nombre}">
-          <h3>${producto.nombre}</h3>
-          <p class="precio">${producto.precio}</p>
-        `;
+  <img src="${producto.img}" alt="${producto.nombre}">
+  <h3>${producto.nombre}</h3>
+  <p class="precio">${producto.precio}</p>
+  <button class="btn btn-principal" onclick="event.stopPropagation(); agregarAlCarrito('${producto.id}')">
+    Agregar al carrito
+  </button>
+`;
         grid.appendChild(card);
       });
 
@@ -1127,8 +1697,16 @@
       document.getElementById("detalle-desc").innerText = producto.desc;
       document.getElementById("detalle-meta").innerText = producto.meta;
 
+      document.getElementById("detalle-agregar").onclick = function () {
+  agregarAlCarrito(producto.id);
+};
+
       mostrarSolo(["detalle-producto"]);
       document.getElementById("detalle-producto").scrollIntoView({ behavior: "smooth" });
+
+      document.getElementById("detalle-agregar").onclick = function () {
+  agregarAlCarrito(producto.id);
+};
     }
 
     function volverAListaColeccion() {
@@ -1212,6 +1790,214 @@ function verProductoDesdeCategoria(productoId) {
 
   mostrarSolo(["detalle-producto"]);
   document.getElementById("detalle-producto").scrollIntoView({ behavior: "smooth" });
+}
+
+
+
+let carrito = [];
+
+function precioANumero(precio) {
+  return Number(precio.replace("$", "").replaceAll(".", ""));
+}
+
+function formatoPrecio(numero) {
+  return "$" + numero.toLocaleString("es-CL");
+}
+
+function agregarAlCarrito(productoId) {
+  const todosLosProductos = Object.values(colecciones).flatMap(c => c.productos);
+  const producto = todosLosProductos.find(p => p.id === productoId);
+
+  if (!producto) return;
+
+  const existente = carrito.find(item => item.id === productoId);
+
+  if (existente) {
+    existente.cantidad += 1;
+  } else {
+    carrito.push({
+      ...producto,
+      cantidad: 1
+    });
+  }
+
+  actualizarCarrito();
+  abrirCarrito();
+}
+
+function actualizarCarrito() {
+  const contenedor = document.getElementById("carrito-items");
+  const contador = document.getElementById("contador-carrito");
+  const totalElemento = document.getElementById("carrito-total");
+
+  contenedor.innerHTML = "";
+
+  let total = 0;
+  let cantidadTotal = 0;
+
+  carrito.forEach(item => {
+    const subtotal = precioANumero(item.precio) * item.cantidad;
+    total += subtotal;
+    cantidadTotal += item.cantidad;
+
+    const div = document.createElement("div");
+    div.className = "carrito-item";
+
+    div.innerHTML = `
+      <img src="${item.img}" alt="${item.nombre}">
+      <div>
+        <h3>${item.nombre}</h3>
+        <p>${item.precio}</p>
+
+        <div class="carrito-controles">
+          <button onclick="cambiarCantidad('${item.id}', -1)">−</button>
+          <span>${item.cantidad}</span>
+          <button onclick="cambiarCantidad('${item.id}', 1)">+</button>
+          <button onclick="eliminarDelCarrito('${item.id}')">Eliminar</button>
+        </div>
+      </div>
+    `;
+
+    contenedor.appendChild(div);
+  });
+
+  contador.innerText = cantidadTotal;
+  totalElemento.innerText = formatoPrecio(total);
+}
+
+function cambiarCantidad(productoId, cambio) {
+  const item = carrito.find(p => p.id === productoId);
+  if (!item) return;
+
+  item.cantidad += cambio;
+
+  if (item.cantidad <= 0) {
+    carrito = carrito.filter(p => p.id !== productoId);
+  }
+
+  actualizarCarrito();
+}
+
+function eliminarDelCarrito(productoId) {
+  carrito = carrito.filter(p => p.id !== productoId);
+  actualizarCarrito();
+}
+
+function abrirCarrito() {
+  document.getElementById("carrito-panel").classList.remove("oculto");
+}
+
+function cerrarCarrito() {
+  document.getElementById("carrito-panel").classList.add("oculto");
+}
+
+function finalizarCompra() {
+  if (carrito.length === 0) {
+    alert("Tu carrito está vacío.");
+    return;
+  }
+
+  alert("Carrito listo. Después conectaremos este botón a Mercado Pago o WhatsApp.");
+}
+
+
+function obtenerTodosLosProductos() {
+  const productosBase = Object.values(colecciones).flatMap(c => c.productos);
+  const productosAdmin = JSON.parse(localStorage.getItem("productosAdmin")) || [];
+  return [...productosBase, ...productosAdmin];
+}
+
+function buscarProductos() {
+  const texto = document.getElementById("buscador").value.toLowerCase().trim();
+
+  if (texto.length === 0) {
+    volverInicio();
+    return;
+  }
+
+  const resultados = obtenerTodosLosProductos().filter(producto =>
+    producto.nombre.toLowerCase().includes(texto) ||
+    producto.desc.toLowerCase().includes(texto) ||
+    producto.meta.toLowerCase().includes(texto) ||
+    producto.categoria.toLowerCase().includes(texto)
+  );
+
+  const grid = document.getElementById("busqueda-grid");
+  const intro = document.getElementById("busqueda-intro");
+
+  grid.innerHTML = "";
+  intro.innerText = `${resultados.length} producto(s) encontrado(s).`;
+
+  resultados.forEach(producto => {
+    const card = document.createElement("div");
+    card.className = "producto-card";
+    card.onclick = () => verProductoLibre(producto);
+
+    card.innerHTML = `
+      <img src="${producto.img}" alt="${producto.nombre}">
+      <h3>${producto.nombre}</h3>
+      <p class="precio">${producto.precio}</p>
+      <button class="btn btn-principal" onclick="event.stopPropagation(); agregarAlCarrito('${producto.id}')">
+        Agregar al carrito
+      </button>
+    `;
+
+    grid.appendChild(card);
+  });
+
+  mostrarSolo(["resultados-busqueda"]);
+}
+
+function verProductoLibre(producto) {
+  document.getElementById("detalle-img").src = producto.img;
+  document.getElementById("detalle-img").alt = producto.nombre;
+  document.getElementById("detalle-nombre").innerText = producto.nombre;
+  document.getElementById("detalle-precio").innerText = producto.precio;
+  document.getElementById("detalle-desc").innerText = producto.desc;
+  document.getElementById("detalle-meta").innerText = producto.meta;
+
+  document.getElementById("detalle-agregar").onclick = function () {
+    agregarAlCarrito(producto.id);
+  };
+
+  mostrarSolo(["detalle-producto"]);
+}
+
+function abrirAdmin() {
+  document.getElementById("admin-panel").classList.remove("oculto");
+}
+
+function cerrarAdmin() {
+  document.getElementById("admin-panel").classList.add("oculto");
+}
+
+function guardarProductoAdmin() {
+  const producto = {
+    id: "admin-" + Date.now(),
+    nombre: document.getElementById("admin-nombre").value,
+    precio: document.getElementById("admin-precio").value,
+    img: document.getElementById("admin-img").value,
+    coleccion: document.getElementById("admin-coleccion").value,
+    categoria: document.getElementById("admin-categoria").value,
+    desc: document.getElementById("admin-desc").value,
+    meta: document.getElementById("admin-meta").value
+  };
+
+  if (!producto.nombre || !producto.precio || !producto.img) {
+    alert("Completa al menos nombre, precio e imagen.");
+    return;
+  }
+
+  const productosAdmin = JSON.parse(localStorage.getItem("productosAdmin")) || [];
+  productosAdmin.push(producto);
+  localStorage.setItem("productosAdmin", JSON.stringify(productosAdmin));
+
+  if (colecciones[producto.coleccion]) {
+    colecciones[producto.coleccion].productos.push(producto);
+  }
+
+  cerrarAdmin();
+  alert("Producto agregado correctamente.");
 }
   </script>
 </body>
